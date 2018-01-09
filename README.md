@@ -6,7 +6,17 @@
 Es una pequeña librería **flexbox** de estilos **autogenerativos**, esta posee la capacidad de replicar estilos para un determinado grupo de **media query**
 a continuación se enseña un ejemplo de lo simple que es replicar estilos con chef
 
-### Instalacion
+### Beneficio
+
+Uno de los mayores beneficio de chef el peso, ya que con tan solo 1.38 kbs gzip es capaz de generar más 20 kbs de css
+
+| salida | Kbs  |
+|--------|------|
+| normal | 6.37 |
+| min    | 3.53 |
+| gzip   | 1.38 |
+
+### Instalación
 
 ### HTML
 
