@@ -6,6 +6,42 @@
 Es una pequeña librería **flexbox** de estilos **autogenerativos**, esta posee la capacidad de replicar estilos para un determinado grupo de **media query**
 a continuación se enseña un ejemplo de lo simple que es replicar estilos con chef
 
+### Instalacion
+
+### HTML
+
+> Se recomienda este proceso de instalacion ya que la carga del css generativo por chef, queda independiente del bundle
+
+```html
+<!--
+Carga chef de forma asíncrona
+-->
+<script async
+        onload="mainChef"
+        src="https://cdn.jsdelivr.net/npm/chef-layout@0.0.3/umd.min.js"></script>  
+<!--
+Inicializa chef una vez éste haya cargado
+-->
+<script>
+function mainChef(){
+    Chef.default();
+    Chef.columns(20);
+}
+</script>
+```
+
+### NPM
+
+```bash
+npm install -D chef-layout
+```
+
+``` javascript
+import Chef from 'chef-layout';
+    Chef.default();
+    Chef.columns(20);
+```
+
 ### Input
 
 entrada a procesar
