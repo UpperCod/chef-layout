@@ -17,7 +17,7 @@ a continuación se enseña un ejemplo de lo simple que es replicar estilos con c
 Carga chef de forma asíncrona
 -->
 <script async
-        onload="mainChef"
+        onload="mainChef()"
         src="https://cdn.jsdelivr.net/npm/chef-layout@0.0.3/umd.min.js"></script>  
 <!--
 Inicializa chef una vez éste haya cargado
