@@ -1,6 +1,6 @@
 {
   "name": "chef-layout",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Is a style generator that compresses the class definition",
   "main": "index.js",
   "module": "index.js",
