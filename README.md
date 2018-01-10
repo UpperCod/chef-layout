@@ -28,7 +28,7 @@ Carga chef de forma asíncrona
 -->
 <script async
         onload="mainChef()"
-        src="https://cdn.jsdelivr.net/npm/chef-layout@0.0.7/umd.min.js"></script>  
+        src="https://cdn.jsdelivr.net/npm/chef-layout@0.0.8/umd.min.js"></script>  
 <!--
 Inicializa chef una vez éste haya cargado
 -->
@@ -52,68 +52,20 @@ import Chef from 'chef-layout';
     Chef.columns(20);
 ```
 
-### Input
-
-entrada a procesar
-
-```css
-.row@prefix{
-   display:flex;
-   flex-flow : row wrap;
-}
-```
-
-### Output
-
-css impreso en el documento html
-
-```css
-.row{
-   display:flex;
-   flex-flow : row wrap;
-}
-@media (max-width:1440px){
-   .row_xl{
-       display:flex;
-       flex-flow : row wrap;
-   }  
-}
-@media (max-width:1280px){
-   .row_l{
-       display:flex;
-       flex-flow : row wrap;
-   }  
-}
-@media (max-width:1024px){
-   .row_m{
-       display:flex;
-       flex-flow : row wrap;
-   }  
-}
-@media (max-width:768px){
-   .row_s{
-       display:flex;
-       flex-flow : row wrap;
-   }  
-}
-@media (max-width:414px){
-   .row_xs{
-       display:flex;
-       flex-flow : row wrap;
-   }  
-}
-```
-
 ## Layout Flex-Box
 
 por defecto chef se creo para trabajar replicando estilos **flex-box**, por lo que incorpora esta pila por defecto.
 
 ### Clases de contención
 
+> Antes de comenzar se alerta que el concepto de columna y fila es distinto al de otros framework css, ya que este se orienta no en el modelo tradicional de tablas, chef vee el contenedor como algo independiente de una tabla por lo que una **fila (.row)** apila el contenido solo de forma horizontal y una **columna(.column)** apila el contenido de forma vertical.
+
 #### .row
 
-contenedor al 100% del largo que apila su contenido de forma **horizontal** y en 
+contenedor al **100% del largo** que apila su contenido de forma **horizontal** y en 
 **cascada**
+
+![Ejemplo de alineación](/images/row.png)
 
 ```css
 .row{
@@ -127,7 +79,10 @@ contenedor al 100% del largo que apila su contenido de forma **horizontal** y en
 
 #### .column
 
-contenedor al 100% del largo que apila su contenido solo de forma vertical
+contenedor al **100% del largo** que apila su contenido solo de forma **vertical**
+
+
+![Ejemplo de alineación](/images/column.png)
 
 ```css
 .column{
@@ -351,3 +306,7 @@ Permite añadir prefijo a los nombres de clases asignados a chef
 ```javascript
 Chef.prefix = 'chef-';
 ```
+
+#### Chef.columns(length,margin)
+
+Permite generar x cantidad de flex-basis 
