@@ -8,16 +8,16 @@ export default {
   input   : 'src/index.js',
   output  : [
     {
-      file  : 'umd.js',
+      file  : 'build/umd.js',
       format: 'umd',
       name  :  NAME
     },
     {
-      file  : 'cjs.js',
+      file  : 'build/cjs.js',
       format: 'cjs',
     },
     {
-      file  : 'iife.js',
+      file  : 'build/iife.js',
       format: 'iife',
       name  :  NAME
     }

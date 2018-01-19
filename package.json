@@ -1,9 +1,12 @@
 {
   "name": "chef-layout",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Is a style generator that compresses the class definition",
-  "main": "index.js",
-  "module": "index.js",
+  "main": "build/cjs.js",
+  "module": "build/cjs.js",
+  "umd:main": "build/umd.js",
+  "jsnext:main": "build/cjs.js",
+  "source": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
