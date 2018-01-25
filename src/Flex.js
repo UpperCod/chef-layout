@@ -22,7 +22,7 @@ export let style = `
 
     .inline@prefix{
         width  : auto;
-        display : flex;
+        display : inline-flex;
     }
 
     @map(.row@childPrefix.reverse@prefix){
