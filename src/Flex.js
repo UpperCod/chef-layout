@@ -1,10 +1,10 @@
 export let version = 'flexbox.0.0.1';
 export let style = `
+   
     .row@prefix,
     .column@prefix{
         width  : 100%;
         height : auto;
-        display : flex;
         box-sizing: border-box;
     }
 
@@ -20,9 +20,25 @@ export let style = `
         flex-direction : column;
     }
 
+    .row@prefix,
+    .column@prefix,
+    @map(.row@childPrefix.show@prefix),
+    @map(.column@childPrefix.show@prefix){
+        display:flex;
+    }
+
     .inline@prefix{
         width  : auto;
+    }
+
+
+    .inline@prefix,
+    @map(.inline@childPrefix.show@prefix){
         display : inline-flex;
+    }
+
+    .hide@prefix{
+        display:none;
     }
 
     @map(.row@childPrefix.reverse@prefix){

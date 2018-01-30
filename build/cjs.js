@@ -1,16 +1,16 @@
 'use strict';
 
-function Chef$1(media,version){
+function Chef(media,version){
     this.media   = media;
     this.css     = [];
     this.version = version;
-    this.cache   = Chef$1.cache;
-    this.prefix  = Chef$1.prefix;
+    this.cache   = Chef.cache;
+    this.prefix  = Chef.prefix;
 }
-Chef$1.cache  = false;
-Chef$1.prefix = '';
+Chef.cache  = false;
+Chef.prefix = '';
 
-Chef$1.prototype = {
+Chef.prototype = {
      global: function global(css){
         this.css.unshift(css);
         return this;
@@ -25,7 +25,7 @@ Chef$1.prototype = {
             version  = version+(namespace?("[" + namespace + "]"):'');
             var next$1 = localStorage.getItem(version);
             if( !next$1  ){
-                var instance = new Chef$1(this.media);
+                var instance = new Chef(this.media);
                     next$1 = instance.repeat(css).css[0];
                     localStorage.setItem(version,next$1);
             }
@@ -87,9 +87,9 @@ var version = 'flexbox.0.0.1';
 /**
  * css minificado con : https://www.minifier.org/
  */
-var style = '.row@prefix,.column@prefix{width:100%;height:auto;display:flex;box-sizing:border-box}.row@prefix{flex-flow:row wrap}.column@prefix{flex-flow:column nowrap}.column@prefix{flex-direction:column}.inline@prefix{width:auto;display:inline-flex}@map(.row@childPrefix.reverse@prefix){flex-direction:row-reverse}@map(.column@childPrefix.reverse@prefix){flex-direction:column-reverse}.centered@prefix,@map(.row@childPrefix.center@prefix),@map(.column@childPrefix.middle@prefix){justify-content:center}.centered@prefix,@map(.row@childPrefix.middle@prefix),@map(.column@childPrefix.center@prefix){align-items:center}@map(.column@childPrefix.left@prefix),@map(.row@childPrefix.top@prefix){align-items:flex-start}@map(.column@childPrefix.right@prefix),@map(.row@childPrefix.bottom@prefix){align-items:flex-end}@map(.column@childPrefix.top@prefix),@map(.row@childPrefix.left@prefix){justify-content:flex-start}@map(.column@childPrefix.bottom@prefix),@map(.row@childPrefix.right@prefix){justify-content:flex-end}.between@prefix{justify-content:space-between}.around@prefix{justify-content:space-around}.evenly@prefix{justify-content:space-evenly}.split@prefix{flex-grow:1;flex-shrink:1;flex-basis:0%}.auto@prefix{flex-grow:0;flex-shrink:0;flex-basis:auto}.contain@prefix{width:auto;height:auto;max-width:100%;max-height:100%}';
+var style = '.row@prefix,.column@prefix{width:100%;height:auto;box-sizing:border-box}.row@prefix{flex-flow:row wrap}.column@prefix{flex-flow:column nowrap}.column@prefix{flex-direction:column}.row@prefix,.column@prefix,@map(.row@childPrefix.show@prefix),@map(.column@childPrefix.show@prefix){display:flex}.inline@prefix{width:auto}.inline@prefix,@map(.inline@childPrefix.show@prefix){display:inline-flex}.hide@prefix{display:none}@map(.row@childPrefix.reverse@prefix){flex-direction:row-reverse}@map(.column@childPrefix.reverse@prefix){flex-direction:column-reverse}.centered@prefix,@map(.row@childPrefix.center@prefix),@map(.column@childPrefix.middle@prefix){justify-content:center}.centered@prefix,@map(.row@childPrefix.middle@prefix),@map(.column@childPrefix.center@prefix){align-items:center}@map(.column@childPrefix.left@prefix),@map(.row@childPrefix.top@prefix){align-items:flex-start}@map(.column@childPrefix.right@prefix),@map(.row@childPrefix.bottom@prefix){align-items:flex-end}@map(.column@childPrefix.top@prefix),@map(.row@childPrefix.left@prefix){justify-content:flex-start}@map(.column@childPrefix.bottom@prefix),@map(.row@childPrefix.right@prefix){justify-content:flex-end}.between@prefix{justify-content:space-between}.around@prefix{justify-content:space-around}.evenly@prefix{justify-content:space-evenly}.split@prefix{flex-grow:1;flex-shrink:1;flex-basis:0%}.auto@prefix{flex-grow:0;flex-shrink:0;flex-basis:auto}.contain@prefix{width:auto;height:auto;max-width:100%;max-height:100%}';
 
-Chef$1.defaultMedia = [
+Chef.defaultMedia = [
     ['global'],
     ['_xl' ,'(max-width:1440px)'],
     ['_l'  ,'(max-width:1280px)'],
@@ -97,18 +97,18 @@ Chef$1.defaultMedia = [
     ['_s'  ,'(max-width:768px)'],
     ['_xs' ,'(max-width:414px)'] ];
 
-Chef$1.default = function( config){
-    if ( config === void 0 ) config = Chef$1.defaultMedia;
+Chef.default = function( config){
+    if ( config === void 0 ) config = Chef.defaultMedia;
 
-    return (new Chef$1(config,version))
+    return (new Chef(config,version))
                     .repeat(style)
                     .print()
 };
 
-Chef$1.columns = function(max,margin,padding){
+Chef.columns = function(max,margin,padding){
     if ( max === void 0 ) max = 20;
 
-    var instance = new Chef$1(Chef$1.defaultMedia,'column.0.0.0'),
+    var instance = new Chef(Chef.defaultMedia,'column.0.0.0'),
         css = '';
         for(var key = 1 ; key <= max ; key++){
             var percent = key / max * 100,
@@ -134,4 +134,4 @@ Chef$1.columns = function(max,margin,padding){
         return instance;
 };
 
-module.exports = Chef$1;
+module.exports = Chef;

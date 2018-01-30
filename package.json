@@ -1,6 +1,6 @@
 {
   "name": "chef-layout",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Is a style generator that compresses the class definition",
   "main": "build/cjs.js",
   "module": "build/cjs.js",
